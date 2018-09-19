@@ -1,0 +1,48 @@
+<h1> indeed scraper </h1>
+
+{{#each items}}
+<p>    {{title}} 
+<br>
+{{summary}}
+<br>
+ <a href =  http://www.indeed.com{{link}}> http://www.indeed.com{{link}} </a>
+ <br>
+
+  <button class="comment" info={{id}} > comment </button> 
+
+<div id={{id}} class="textarea">
+  <textarea class="note-text" > </textarea>
+  <button class="save" info={{id}}> save </button> 
+  </div>
+</p>
+
+{{/each}}
+
+<script>
+$(".textarea").hide()
+
+$(".comment").on("click", function(){
+    var id =$(this).attr("info")
+    $("#" + id).show()
+   
+    console.log(id)
+})
+
+$(".save").on("click", function(){
+    var id =$(this).attr("info")
+    
+   var noteText = $(".note-text").val()
+   
+    console.log(noteText)
+})
+</script>
+<style>
+
+    .hide{
+display: none;
+    }
+
+.comment{
+    display: block;
+}
+</style>
